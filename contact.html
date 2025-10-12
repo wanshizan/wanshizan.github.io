@@ -48,8 +48,9 @@
             .nav-link.active {
                 @apply text-primary after:w-full;
             }
+            /* 优化电话链接排版：左对齐+垂直居中+合理间距 */
             .phone-link {
-                @apply flex items-center justify-center gap-3 text-xl md:text-2xl font-medium text-primary hover:text-accent transition-colors duration-300;
+                @apply flex items-center justify-start gap-3 text-xl md:text-2xl font-medium text-primary hover:text-accent transition-colors duration-300 py-2;
             }
         }
     </style>
@@ -104,7 +105,7 @@
         </div>
     </section>
 
-    <!-- 联系信息区域 -->
+    <!-- 联系信息区域（仅修改电话部分排版） -->
     <section class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
@@ -116,8 +117,9 @@
                             <i class="fa fa-phone text-2xl text-primary"></i>
                         </div>
                         <h3 class="text-xl font-semibold text-primary mb-4">联系电话</h3>
-                        <a href="tel:15701032318" class="phone-link mb-4">
-                            <i class="fa fa-mobile" style="font-size: 2rem;"></i>
+                        <!-- 优化：图标垂直居中+左对齐排版 -->
+                        <a href="tel:15701032318" class="phone-link mb-3">
+                            <i class="fa fa-mobile" style="font-size: 2rem;" align="middle"></i>
                             <span>15701032318</span>
                         </a>
                         <p class="text-secondary/70 flex items-center">
@@ -132,8 +134,9 @@
                             <i class="fa fa-phone text-2xl text-primary"></i>
                         </div>
                         <h3 class="text-xl font-semibold text-primary mb-4">联系电话</h3>
-                        <a href="tel:15701032319" class="phone-link mb-4">
-                            <i class="fa fa-mobile" style="font-size: 2rem;"></i>
+                        <!-- 优化：图标垂直居中+左对齐排版 -->
+                        <a href="tel:15701032319" class="phone-link mb-3">
+                            <i class="fa fa-mobile" style="font-size: 2rem;" align="middle"></i>
                             <span>15701032319</span>
                         </a>
                         <p class="text-secondary/70 flex items-center">
@@ -178,8 +181,7 @@
                 <p class="text-sm text-secondary/60">微信扫码咨询</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- 页脚 -->
     <footer class="bg-primary text-white py-12">
@@ -330,4 +332,3 @@
     </script>
 </body>
 </html>
-    
