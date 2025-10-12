@@ -16,9 +16,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1a365d', // 深蓝色作为主色调，体现专业感
-                        secondary: '#4a5568', // 深灰色作为辅助色
-                        accent: '#3182ce', // 亮蓝色作为强调色
+                        primary: '#1a365d', // 主色调：深蓝色
+                        secondary: '#4a5568', // 辅助色：深灰色
+                        accent: '#3182ce', // 强调色：亮蓝色
                         light: '#f7fafc', // 浅色背景
                     },
                     fontFamily: {
@@ -45,19 +45,19 @@
 </head>
 
 <body class="bg-light text-secondary font-sans">
-    <!-- 导航栏 -->
+    <!-- 导航栏（含左上角Logo） -->
     <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 md:h-20">
-                <!-- 品牌Logo -->
+                <!-- 左上角Logo -->
                 <a href="/" class="flex items-center space-x-2">
+                    <img src="https://free.picui.cn/free/2025/10/12/68eb4886799e0.jpg" alt="万食赞®Logo" class="w-10 h-10 object-contain">
                     <span class="text-primary text-2xl font-bold">万食赞®</span>
                 </a>
                 
-                <!-- 导航链接 - 桌面端 -->
+                <!-- 桌面端导航链接 -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="#" class="text-primary font-medium hover:text-accent transition-colors">首页</a>
-                    <a href="#about" class="text-secondary font-medium hover:text-accent transition-colors">关于我们</a>
                     <a href="#products" class="text-secondary font-medium hover:text-accent transition-colors">产品中心</a>
                     <a href="#contact" class="text-secondary font-medium hover:text-accent transition-colors">联系我们</a>
                 </nav>
@@ -73,7 +73,6 @@
         <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
             <div class="container mx-auto px-4 py-3 space-y-3">
                 <a href="#" class="block text-primary font-medium">首页</a>
-                <a href="#about" class="block text-secondary hover:text-accent transition-colors">关于我们</a>
                 <a href="#products" class="block text-secondary hover:text-accent transition-colors">产品中心</a>
                 <a href="#contact" class="block text-secondary hover:text-accent transition-colors">联系我们</a>
             </div>
@@ -97,37 +96,16 @@
         </div>
     </section>
 
-    <!-- 公司简介 -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-8 text-center">关于我们</h2>
-                
-                <div class="bg-light rounded-xl p-8 shadow-sm">
-                    <p class="text-secondary mb-6 leading-relaxed">
-                        北京康易安科技有限公司成立于[成立年份]，是一家专注于[行业领域]的高科技企业。公司秉承"[企业理念]"的宗旨，致力于为消费者提供高品质、安全可靠的产品。
-                    </p>
-                    <p class="text-secondary mb-6 leading-relaxed">
-                        万食赞®作为公司核心品牌，凝聚了我们对品质的极致追求和对消费者健康的深切关怀。我们坚持科技创新，不断提升产品质量与服务水平，努力成为行业内的领先者。
-                    </p>
-                    <p class="text-secondary leading-relaxed">
-                        未来，我们将继续秉持诚信、创新、卓越的企业精神，为广大客户提供更优质的产品和服务，共创美好未来。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 产品展示 -->
+    <!-- 产品展示（保留） -->
     <section id="products" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4 text-center">产品中心*</h2>
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4 text-center">产品中心</h2>
             <p class="text-secondary/70 text-center max-w-2xl mx-auto mb-12">精选优质产品，满足您的需求</p>
             
             <!-- 产品网格 -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                <!-- 产品1 -->
-                <a href="/六物山楂条.html" class="block group">
+                <!-- 产品1：六物山楂条 -->
+                <a href="/6shanzha.html" class="block group">
                     <div class="bg-white rounded-xl overflow-hidden shadow-md product-hover h-full">
                         <div class="aspect-[3/4] overflow-hidden">
                             <img src="https://free.picui.cn/free/2025/10/12/68eb3954232ee.jpg" alt="六物山楂条展示图" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -139,8 +117,8 @@
                     </div>
                 </a>
                 
-                <!-- 产品2 -->
-                <a href="/十八味女神茶.html" class="block group">
+                <!-- 产品2：十八味女神茶 -->
+                <a href="/18griltea.html" class="block group">
                     <div class="bg-white rounded-xl overflow-hidden shadow-md product-hover h-full">
                         <div class="aspect-[3/4] overflow-hidden">
                             <img src="https://free.picui.cn/free/2025/10/12/68eb3aad8f46d.jpg" alt="十八味女神茶展示图" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -189,37 +167,41 @@
         </div>
     </section>
 
-    <!-- 联系信息 -->
+    <!-- 联系信息（仅保留3个电话） -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl mx-auto text-center">
                 <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-6">联系我们</h2>
                 <p class="text-secondary/70 mb-8">如有任何疑问或需求，请随时与我们联系</p>
                 
+                <!-- 3个电话卡片 -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                    <div class="p-6 bg-light rounded-lg">
-                        <i class="fa fa-map-marker text-accent text-2xl mb-4"></i>
-                        <h3 class="text-primary font-semibold mb-2">公司地址</h3>
-                        <p class="text-secondary/80 text-sm">北京市[具体地址]</p>
-                    </div>
-                    
+                    <!-- 电话1：客服热线 -->
                     <div class="p-6 bg-light rounded-lg">
                         <i class="fa fa-phone text-accent text-2xl mb-4"></i>
-                        <h3 class="text-primary font-semibold mb-2">联系电话</h3>
-                        <p class="text-secondary/80 text-sm">400-xxxx-xxxx</p>
+                        <h3 class="text-primary font-semibold mb-2">客服热线</h3>
+                        <p class="text-secondary/80">400-123-4567</p>
                     </div>
                     
+                    <!-- 电话2：合作咨询 -->
                     <div class="p-6 bg-light rounded-lg">
-                        <i class="fa fa-envelope text-accent text-2xl mb-4"></i>
-                        <h3 class="text-primary font-semibold mb-2">电子邮箱</h3>
-                        <p class="text-secondary/80 text-sm">info@wanshizan.com</p>
+                        <i class="fa fa-phone-square text-accent text-2xl mb-4"></i>
+                        <h3 class="text-primary font-semibold mb-2">合作咨询</h3>
+                        <p class="text-secondary/80">010-8765-4321</p>
+                    </div>
+                    
+                    <!-- 电话3：售后支持 -->
+                    <div class="p-6 bg-light rounded-lg">
+                        <i class="fa fa-headphones text-accent text-2xl mb-4"></i>
+                        <h3 class="text-primary font-semibold mb-2">售后支持</h3>
+                        <p class="text-secondary/80">138-9876-5432</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 页脚 -->
+    <!-- 页脚（同步更新联系信息为3个电话） -->
     <footer class="bg-primary text-white py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -232,18 +214,17 @@
                     <h4 class="font-semibold mb-4">快速链接</h4>
                     <ul class="space-y-2 text-sm text-white/70">
                         <li><a href="#" class="hover:text-white transition-colors">首页</a></li>
-                        <li><a href="#about" class="hover:text-white transition-colors">关于我们</a></li>
                         <li><a href="#products" class="hover:text-white transition-colors">产品中心</a></li>
                         <li><a href="#contact" class="hover:text-white transition-colors">联系我们</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-semibold mb-4">法律信息</h4>
+                    <h4 class="font-semibold mb-4">联系电话</h4>
                     <ul class="space-y-2 text-sm text-white/70">
-                        <li><a href="#" class="hover:text-white transition-colors">隐私政策</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">使用条款</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">法律声明</a></li>
+                        <li>客服热线：400-123-4567</li>
+                        <li>合作咨询：010-8765-4321</li>
+                        <li>售后支持：138-9876-5432</li>
                     </ul>
                 </div>
                 
@@ -277,7 +258,6 @@
         
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            // 切换图标
             const icon = menuBtn.querySelector('i');
             if (icon.classList.contains('fa-bars')) {
                 icon.classList.replace('fa-bars', 'fa-times');
@@ -302,13 +282,12 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    // 关闭移动菜单（如果打开）
+                    // 关闭移动菜单
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                         const icon = menuBtn.querySelector('i');
