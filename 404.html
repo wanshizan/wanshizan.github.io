@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面未找到|万食赞®官方网站</title>
+    <meta name="description" content="万食赞®页面未找到 - 您访问的页面不存在或已被移除">
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 引入Animate.css第三方动画库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- 配置Tailwind自定义主题 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a365d',
+                        secondary: '#4a5568',
+                        accent: '#3182ce',
+                        light: '#f7fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-balance {
+                text-wrap: balance;
+            }
+            .nav-link {
+                @apply relative text-secondary font-medium hover:text-accent transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full;
+            }
+            .nav-link.active {
+                @apply text-primary after:w-full;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-light text-secondary font-sans overflow-x-hidden">
+    <!-- 导航栏 -->
+    <header class="fixed w-full bg-white/80 backdrop-blur-sm shadow-sm z-50 transition-all duration-500" id="header">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2 group">
+                    <img src="https://free.picui.cn/free/2025/10/12/68eb4886799e0.jpg" alt="万食赞®Logo" class="w-10 h-10 object-contain transition-transform duration-500 group-hover:rotate-3">
+                    <span class="text-primary text-2xl font-bold">万食赞®</span>
+                </a>
+                
+                <!-- 桌面端导航 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/" class="nav-link active">首页</a>
+                    <a href="/#products" class="nav-link">产品中心</a>
+                    <a href="/contact.html" class="nav-link">联系我们</a>
+                </nav>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menuBtn" class="md:hidden text-secondary hover:text-primary transition-colors focus:outline-none">
+                    <i class="fa fa-bars text-xl transition-transform duration-300" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t animate__animated">
+            <div class="container mx-auto px-4 py-3 space-y-3" id="mobileMenuContent">
+                <a href="/" class="block text-primary font-medium py-2">首页</a>
+                <a href="/#products" class="block text-secondary hover:text-accent transition-colors py-2">产品中心</a>
+                <a href="/contact.html" class="block text-secondary hover:text-accent transition-colors py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 404错误区域 -->
+    <section class="pt-40 pb-32 md:pt-56 md:pb-48 bg-gradient-to-br from-primary/5 to-primary/10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- 404数字动画（已移除感叹号图标） -->
+                <div class="text-[clamp(5rem,15vw,10rem)] font-bold text-primary/10 mb-8 relative">
+                    <span class="absolute top-0 left-1/2 -translate-x-1/2 w-full animate__animated animate__fadeIn" style="animation-delay: 0.2s">404</span>
+                </div>
+                
+                <!-- 错误信息 -->
+                <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-primary mb-6 animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
+                    页面未找到
+                </h1>
+                <p class="text-[clamp(1.1rem,2vw,1.3rem)] text-secondary/80 mb-10 max-w-2xl mx-auto text-balance animate__animated animate__fadeInUp" style="animation-delay: 0.7s">
+                    抱歉，您访问的页面不存在或已被移除。请检查您输入的网址是否正确，或返回首页继续浏览。
+                </p>
+                
+                <!-- 操作按钮 -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4 animate__animated animate__fadeInUp" style="animation-delay: 0.9s">
+                    <a href="/" class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105">
+                        返回首页
+                        <i class="fa fa-home ml-2"></i>
+                    </a>
+                    <a href="/contact.html" class="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-primary font-medium px-8 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 border border-primary/10">
+                        联系我们
+                        <i class="fa fa-phone ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速链接区域 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-primary mb-10 text-center opacity-0" data-animate="fadeInUp" data-delay="200">
+                    您可能想访问这些页面
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- 链接1 -->
+                    <a href="/" class="bg-light rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 opacity-0" data-animate="fadeInUp" data-delay="300">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-home text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-primary">首页</h3>
+                        <p class="text-secondary/70 text-sm mt-2">返回网站首页，浏览最新内容</p>
+                    </a>
+                    
+                    <!-- 链接2 -->
+                    <a href="/#products" class="bg-light rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 opacity-0" data-animate="fadeInUp" data-delay="400">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-shopping-bag text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-primary">产品中心</h3>
+                        <p class="text-secondary/70 text-sm mt-2">查看我们的全部产品系列</p>
+                    </a>
+                    
+                    <!-- 链接3 -->
+                    <a href="/contact.html" class="bg-light rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 opacity-0" data-animate="fadeInUp" data-delay="500">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                            <i class="fa fa-envelope text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-primary">联系我们</h3>
+                        <p class="text-secondary/70 text-sm mt-2">获取帮助或咨询相关问题</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">万食赞®</h3>
+                    <p class="text-white/70 text-sm">北京康易安科技有限公司旗下品牌，致力于提供高品质产品与服务</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2 text-sm text-white/70">
+                        <li><a href="/" class="hover:text-white transition-colors">首页</a></li>
+                        <li><a href="/#products" class="hover:text-white transition-colors">产品中心</a></li>
+                        <li><a href="/contact.html" class="hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">联系电话</h4>
+                    <ul class="space-y-2 text-sm text-white/70">
+                        <li>15701032318（微信同号）</li>
+                        <li>15701032319（微信同号）</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">关注我们</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/70 hover:text-white transition-all duration-300 hover:scale-125">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-white transition-all duration-300 hover:scale-125">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-white transition-all duration-300 hover:scale-125">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-center text-white/60 text-sm">
+                <p>© 2025北京康易安科技有限公司 版权所有|Flyz远征飞提供技术支持 *图片仅供参考</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white/95', 'shadow-md');
+                header.classList.remove('bg-white/80', 'shadow-sm');
+            } else {
+                header.classList.remove('bg-white/95', 'shadow-md');
+                header.classList.add('bg-white/80', 'shadow-sm');
+            }
+        });
+
+        // 移动端菜单
+        const menuBtn = document.getElementById('menuBtn');
+        const menuIcon = document.getElementById('menuIcon');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            if (!menuOpen) {
+                menuIcon.classList.add('rotate-90');
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('animate__slideInDown');
+            } else {
+                menuIcon.classList.remove('rotate-90');
+                mobileMenu.classList.add('animate__slideOutUp');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('animate__slideOutUp');
+                }, 500);
+            }
+            menuOpen = !menuOpen;
+        });
+
+        // 滚动动画
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('[data-animate]');
+            
+            elements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                const animation = el.getAttribute('data-animate');
+                const delay = el.getAttribute('data-delay') || 0;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    setTimeout(() => {
+                        el.classList.add(`animate__animated`, `animate__${animation}`);
+                        el.style.opacity = 1;
+                    }, delay);
+                }
+            });
+        };
+
+        // 初始化动画
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // 关闭移动菜单
+                    if (menuOpen) {
+                        menuIcon.classList.remove('rotate-90');
+                        mobileMenu.classList.add('animate__slideOutUp');
+                        setTimeout(() => {
+                            mobileMenu.classList.add('hidden');
+                            mobileMenu.classList.remove('animate__slideOutUp');
+                        }, 500);
+                        menuOpen = false;
+                    }
+
+                    // 平滑滚动
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+    
