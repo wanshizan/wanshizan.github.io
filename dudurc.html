@@ -6,6 +6,7 @@
   <title>嘟嘟电池DuDu-RC</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
   
   <script>
     tailwind.config = {
@@ -14,6 +15,7 @@
           colors: {
             primary: '#2563EB',
             secondary: '#10B981',
+            dark: '#1E293B',
           },
           fontFamily: {
             inter: ['Inter', 'sans-serif'],
@@ -31,10 +33,15 @@
         animation: gradientShift 10s ease infinite;
       }
       .text-shadow {
-        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-shadow: 0 2px 10px rgba(0,0,0,0.15);
       }
       .card-glow {
-        box-shadow: 0 0 20px rgba(37, 99, 235, 0.08);
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .card-glow:hover {
+        box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+        transform: translateY(-5px);
       }
       .particle-bg {
         position: absolute;
@@ -51,6 +58,55 @@
       .float-animation {
         animation: float 6s ease-in-out infinite;
       }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .parallax-bg {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .image-hover {
+        transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .image-hover:hover {
+        transform: scale(1.05);
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .product-card {
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .product-card:hover {
+        transform: translateY(-10px);
+      }
+      .product-card img {
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .product-card:hover img {
+        transform: scale(1.15);
+      }
     }
     
     @keyframes gradientShift {
@@ -64,6 +120,25 @@
       50% { transform: translateY(-15px); }
       100% { transform: translateY(0px); }
     }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse-animation {
+      animation: pulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .fade-in {
+      animation: fadeIn 1.5s ease forwards;
+    }
   </style>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -74,37 +149,37 @@
   <div id="particles-js" class="particle-bg"></div>
   
   <!-- 导航栏 -->
-  <header class="fixed top-0 left-0 right-0 z-50 gradient-nav shadow-md transition-all duration-300">
+  <header class="fixed top-0 left-0 right-0 z-50 gradient-nav shadow-md transition-all duration-500">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
       <!-- Logo (2:1比例) -->
-      <div class="w-32 h-16 bg-white rounded-md flex items-center justify-center overflow-hidden shadow-md">
+      <div class="w-32 h-16 bg-white rounded-md flex items-center justify-center overflow-hidden shadow-md transform transition-all duration-300 hover:scale-105">
         <img src="https://www.img520.com/c890Go.jpeg" alt="嘟嘟电池" class="w-full h-full object-contain">
       </div>
       
       <!-- 导航链接 -->
       <nav class="hidden md:flex space-x-8">
-        <a href="#home" class="text-white hover:text-gray-100 transition-colors duration-300 font-medium">首页</a>
-        <a href="#company" class="text-white hover:text-gray-100 transition-colors duration-300 font-medium">公司概况</a>
-        <a href="#business" class="text-white hover:text-gray-100 transition-colors duration-300 font-medium">核心业务</a>
-        <a href="#partners" class="text-white hover:text-gray-100 transition-colors duration-300 font-medium">合作伙伴</a>
-        <a href="#products" class="text-white hover:text-gray-100 transition-colors duration-300 font-medium">产品系列</a>
-        <a href="#contact" class="text-white hover:text-gray-100 transition-colors duration-300 font-medium">联系我们</a>
+        <a href="#home" class="nav-link text-white hover:text-gray-100 transition-colors duration-300 font-medium">首页</a>
+        <a href="#company" class="nav-link text-white hover:text-gray-100 transition-colors duration-300 font-medium">公司概况</a>
+        <a href="#business" class="nav-link text-white hover:text-gray-100 transition-colors duration-300 font-medium">核心业务</a>
+        <a href="#partners" class="nav-link text-white hover:text-gray-100 transition-colors duration-300 font-medium">合作伙伴</a>
+        <a href="#products" class="nav-link text-white hover:text-gray-100 transition-colors duration-300 font-medium">产品系列</a>
+        <a href="#contact" class="nav-link text-white hover:text-gray-100 transition-colors duration-300 font-medium">联系我们</a>
       </nav>
       
       <!-- 移动端菜单按钮 -->
-      <button class="md:hidden text-white text-2xl focus:outline-none" id="menuBtn">
-        ☰
+      <button class="md:hidden text-white text-2xl focus:outline-none transition-transform duration-300 hover:scale-110" id="menuBtn">
+        <i class="fa fa-bars"></i>
       </button>
     </div>
     
     <!-- 移动端菜单 -->
-    <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobileMenu">
+    <div class="md:hidden hidden bg-white shadow-lg absolute w-full transform -translate-y-2 opacity-0 transition-all duration-300" id="mobileMenu">
       <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
-        <a href="#home" class="text-gray-800 hover:text-primary transition-colors py-2">首页</a>
-        <a href="#company" class="text-gray-800 hover:text-primary transition-colors py-2">公司概况</a>
-        <a href="#business" class="text-gray-800 hover:text-primary transition-colors py-2">核心业务</a>
-        <a href="#partners" class="text-gray-800 hover:text-primary transition-colors py-2">合作伙伴</a>
-        <a href="#products" class="text-gray-800 hover:text-primary transition-colors py-2">产品系列</a>
+        <a href="#home" class="text-gray-800 hover:text-primary transition-colors py-2 border-b border-gray-100">首页</a>
+        <a href="#company" class="text-gray-800 hover:text-primary transition-colors py-2 border-b border-gray-100">公司概况</a>
+        <a href="#business" class="text-gray-800 hover:text-primary transition-colors py-2 border-b border-gray-100">核心业务</a>
+        <a href="#partners" class="text-gray-800 hover:text-primary transition-colors py-2 border-b border-gray-100">合作伙伴</a>
+        <a href="#products" class="text-gray-800 hover:text-primary transition-colors py-2 border-b border-gray-100">产品系列</a>
         <a href="#contact" class="text-gray-800 hover:text-primary transition-colors py-2">联系我们</a>
       </div>
     </div>
@@ -113,7 +188,7 @@
   <!-- 主内容 -->
   <main class="pt-24 pb-16">
     <!-- 首页区域 -->
-    <section id="home" class="min-h-[70vh] flex items-center relative">
+    <section id="home" class="min-h-[85vh] flex items-center relative overflow-hidden">
       <div class="particle-bg" id="particles-home"></div>
       <div class="container mx-auto px-4 py-12 content-relative">
         <div class="max-w-4xl mx-auto text-center">
@@ -123,8 +198,15 @@
           <p class="text-[clamp(1rem,2vw,1.25rem)] text-gray-600 mb-10 max-w-2xl mx-auto opacity-0 transform translate-y-8 transition-all duration-1000 delay-300" id="heroDesc">
             为航模爱好者提供高性能动力解决方案，稳定可靠，续航持久
           </p>
-          <a href="#products" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 opacity-0 transform translate-y-8 transition-all duration-1000 delay-500" id="heroBtn">
+          <a href="#products" class="inline-block bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg opacity-0 transform translate-y-8 transition-all duration-1000 delay-500" id="heroBtn">
             探索产品系列
+          </a>
+        </div>
+        
+        <!-- 装饰性滚动指示器 -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center animate-bounce">
+          <a href="#company" class="text-gray-500 hover:text-primary transition-colors duration-300">
+            <i class="fa fa-angle-down text-2xl"></i>
           </a>
         </div>
       </div>
@@ -133,14 +215,34 @@
     <!-- 公司概况 -->
     <section id="company" class="py-20 bg-white relative">
       <div class="container mx-auto px-4 content-relative">
-        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 opacity-0 transform translate-y-8 transition-all duration-1000" id="companyTitle">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 reveal">
           公司概况
         </h2>
         
-        <div class="max-w-3xl mx-auto bg-gray-50 rounded-xl p-8 shadow-sm transform translate-y-20 opacity-0 transition-all duration-700" id="companyContent">
+        <div class="max-w-3xl mx-auto bg-gray-50 rounded-xl p-8 shadow-sm reveal">
           <p class="text-gray-700 leading-relaxed">
             东莞市塘厦诚鑫轩电池制造厂于2014年注册成立，是一家专注于高倍率锂电池生产、加工及销售的公司。公司总部位于广东省东莞市清溪镇莲塘路2号金龙工业区。自成立以来，公司秉持"品质第一，客户至上"的宗旨，致力于为每一位客户提供高品质的产品和服务，在行业内树立了良好的口碑。
           </p>
+          
+          <!-- 公司数据 -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:shadow-md">
+              <div class="text-3xl font-bold text-primary mb-2 counter" data-target="10">0</div>
+              <div class="text-gray-600 text-sm">年行业经验</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:shadow-md">
+              <div class="text-3xl font-bold text-primary mb-2 counter" data-target="500000">0</div>
+              <div class="text-gray-600 text-sm">满意客户</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:shadow-md">
+              <div class="text-3xl font-bold text-primary mb-2 counter" data-target="100">0</div>
+              <div class="text-gray-600 text-sm">产品型号</div>
+            </div>
+            <div class="text-center p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:shadow-md">
+              <div class="text-3xl font-bold text-primary mb-2 counter" data-target="20">0</div>
+              <div class="text-gray-600 text-sm">合作伙伴</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -148,14 +250,16 @@
     <!-- 核心业务 -->
     <section id="business" class="py-20 bg-gray-50 relative">
       <div class="container mx-auto px-4 content-relative">
-        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 opacity-0 transform translate-y-8 transition-all duration-1000" id="businessTitle">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 reveal">
           核心业务
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           <!-- 业务1 -->
-          <div class="bg-white rounded-xl overflow-hidden card-glow transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 100ms;" id="business1">
-            <img src="https://www.img520.com/X9sGmh.png" alt="航模电池" class="w-full aspect-square object-cover">
+          <div class="bg-white rounded-xl overflow-hidden card-glow reveal">
+            <div class="h-48 overflow-hidden">
+              <img src="https://www.img520.com/X9sGmh.png" alt="航模电池" class="w-full h-full object-cover image-hover">
+            </div>
             <div class="p-6">
               <h3 class="font-bold text-xl mb-3">航模电池</h3>
               <p class="text-gray-600">
@@ -165,8 +269,10 @@
           </div>
           
           <!-- 业务2 -->
-          <div class="bg-white rounded-xl overflow-hidden card-glow transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 300ms;" id="business2">
-            <img src="https://www.img520.com/i9KOhp.png" alt="行业无人机电池" class="w-full aspect-square object-cover">
+          <div class="bg-white rounded-xl overflow-hidden card-glow reveal" style="transition-delay: 150ms;">
+            <div class="h-48 overflow-hidden">
+              <img src="https://www.img520.com/i9KOhp.png" alt="行业无人机电池" class="w-full h-full object-cover image-hover">
+            </div>
             <div class="p-6">
               <h3 class="font-bold text-xl mb-3">行业无人机电池</h3>
               <p class="text-gray-600">
@@ -176,8 +282,10 @@
           </div>
           
           <!-- 业务3 -->
-          <div class="bg-white rounded-xl overflow-hidden card-glow transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 500ms;" id="business3">
-            <img src="https://www.img520.com/FcljFK.png" alt="汽车启动电源" class="w-full aspect-square object-cover">
+          <div class="bg-white rounded-xl overflow-hidden card-glow reveal" style="transition-delay: 300ms;">
+            <div class="h-48 overflow-hidden">
+              <img src="https://www.img520.com/FcljFK.png" alt="汽车启动电源" class="w-full h-full object-cover image-hover">
+            </div>
             <div class="p-6">
               <h3 class="font-bold text-xl mb-3">汽车启动电源</h3>
               <p class="text-gray-600">
@@ -187,8 +295,10 @@
           </div>
           
           <!-- 业务4 -->
-          <div class="bg-white rounded-xl overflow-hidden card-glow transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 700ms;" id="business4">
-            <img src="https://www.img520.com/jPJg9j.png" alt="车模船模电池" class="w-full aspect-square object-cover">
+          <div class="bg-white rounded-xl overflow-hidden card-glow reveal" style="transition-delay: 450ms;">
+            <div class="h-48 overflow-hidden">
+              <img src="https://www.img520.com/jPJg9j.png" alt="车模船模电池" class="w-full h-full object-cover image-hover">
+            </div>
             <div class="p-6">
               <h3 class="font-bold text-xl mb-3">车模船模电池</h3>
               <p class="text-gray-600">
@@ -203,15 +313,23 @@
     <!-- 合作伙伴 -->
     <section id="partners" class="py-20 bg-white relative">
       <div class="container mx-auto px-4 content-relative">
-        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 opacity-0 transform translate-y-8 transition-all duration-1000" id="partnersTitle">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 reveal">
           合作伙伴与客户
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <img src="https://www.img520.com/duwKA6.png" alt="合作伙伴" class="rounded-xl w-full h-auto transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 100ms;" id="partner1">
-          <img src="https://www.img520.com/68zmkw.png" alt="合作伙伴" class="rounded-xl w-full h-auto transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 300ms;" id="partner2">
-          <img src="https://www.img520.com/fUFtZB.png" alt="合作伙伴" class="rounded-xl w-full h-auto transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 500ms;" id="partner3">
-          <img src="https://www.img520.com/MQpFcH.png" alt="合作伙伴" class="rounded-xl w-full h-auto transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 700ms;" id="partner4">
+          <div class="overflow-hidden rounded-xl shadow-sm reveal">
+            <img src="https://www.img520.com/duwKA6.png" alt="合作伙伴" class="w-full h-auto image-hover">
+          </div>
+          <div class="overflow-hidden rounded-xl shadow-sm reveal" style="transition-delay: 150ms;">
+            <img src="https://www.img520.com/68zmkw.png" alt="合作伙伴" class="w-full h-auto image-hover">
+          </div>
+          <div class="overflow-hidden rounded-xl shadow-sm reveal" style="transition-delay: 300ms;">
+            <img src="https://www.img520.com/fUFtZB.png" alt="合作伙伴" class="w-full h-auto image-hover">
+          </div>
+          <div class="overflow-hidden rounded-xl shadow-sm reveal" style="transition-delay: 450ms;">
+            <img src="https://www.img520.com/MQpFcH.png" alt="合作伙伴" class="w-full h-auto image-hover">
+          </div>
         </div>
       </div>
     </section>
@@ -220,16 +338,16 @@
     <section id="products" class="py-20 bg-white relative">
       <div class="particle-bg" id="particles-products"></div>
       <div class="container mx-auto px-4 content-relative">
-        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 opacity-0 transform translate-y-8 transition-all duration-1000" id="productsTitle">
+        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-center mb-16 reveal">
           高性能电池系列
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <!-- 产品1 -->
-          <div class="bg-gray-50 rounded-xl overflow-hidden card-glow transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 100ms;" id="product1">
-            <div class="relative w-full" style="padding-top: 32.26%;">
-              <img src="https://www.img520.com/0E5XIH.jpeg" alt="12000mAh电池" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110">
-              <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium px-3 py-1 rounded-full shadow-md">
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm product-card reveal">
+            <div class="relative w-full overflow-hidden" style="padding-top: 32.26%;">
+              <img src="https://www.img520.com/0E5XIH.jpeg" alt="12000mAh电池" class="absolute inset-0 w-full h-full object-cover">
+              <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium px-3 py-1 rounded-full shadow-md transform transition-all duration-300 hover:scale-110">
                 12000mAh
               </div>
             </div>
@@ -248,10 +366,10 @@
           </div>
           
           <!-- 产品2 -->
-          <div class="bg-gray-50 rounded-xl overflow-hidden card-glow transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 300ms;" id="product2">
-            <div class="relative w-full" style="padding-top: 32.26%;">
-              <img src="https://www.img520.com/RnWS1l.jpeg" alt="16000mAh电池" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110">
-              <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium px-3 py-1 rounded-full shadow-md">
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm product-card reveal" style="transition-delay: 200ms;">
+            <div class="relative w-full overflow-hidden" style="padding-top: 32.26%;">
+              <img src="https://www.img520.com/RnWS1l.jpeg" alt="16000mAh电池" class="absolute inset-0 w-full h-full object-cover">
+              <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium px-3 py-1 rounded-full shadow-md transform transition-all duration-300 hover:scale-110">
                 16000mAh
               </div>
             </div>
@@ -270,10 +388,10 @@
           </div>
           
           <!-- 产品3 -->
-          <div class="bg-gray-50 rounded-xl overflow-hidden card-glow transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 500ms;" id="product3">
-            <div class="relative w-full" style="padding-top: 32.26%;">
-              <img src="https://www.img520.com/6jw5Cy.jpeg" alt="22000mAh电池" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110">
-              <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium px-3 py-1 rounded-full shadow-md">
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm product-card reveal" style="transition-delay: 400ms;">
+            <div class="relative w-full overflow-hidden" style="padding-top: 32.26%;">
+              <img src="https://www.img520.com/6jw5Cy.jpeg" alt="22000mAh电池" class="absolute inset-0 w-full h-full object-cover">
+              <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium px-3 py-1 rounded-full shadow-md transform transition-all duration-300 hover:scale-110">
                 22000mAh
               </div>
             </div>
@@ -297,14 +415,14 @@
     <!-- 产品特点 -->
     <section class="py-20 bg-gray-50 relative">
       <div class="container mx-auto px-4">
-        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-center mb-16 opacity-0 transform translate-y-8 transition-all duration-1000" id="featuresTitle">
+        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-center mb-16 reveal">
           产品优势
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div class="bg-white p-8 rounded-xl shadow-sm transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 100ms;" id="feature1">
+          <div class="bg-white p-8 rounded-xl shadow-sm reveal">
             <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 float-animation">
-              <span class="text-primary text-2xl">⚡</span>
+              <span class="text-primary text-2xl"><i class="fa fa-bolt"></i></span>
             </div>
             <h3 class="text-xl font-bold text-center mb-3">强劲输出</h3>
             <p class="text-gray-600 text-center">
@@ -312,9 +430,9 @@
             </p>
           </div>
           
-          <div class="bg-white p-8 rounded-xl shadow-sm transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 300ms;" id="feature2">
+          <div class="bg-white p-8 rounded-xl shadow-sm reveal" style="transition-delay: 200ms;">
             <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 0.5s;">
-              <span class="text-primary text-2xl">⏱️</span>
+              <span class="text-primary text-2xl"><i class="fa fa-clock-o"></i></span>
             </div>
             <h3 class="text-xl font-bold text-center mb-3">持久续航</h3>
             <p class="text-gray-600 text-center">
@@ -322,14 +440,46 @@
             </p>
           </div>
           
-          <div class="bg-white p-8 rounded-xl shadow-sm transform translate-y-20 opacity-0 transition-all duration-700" style="transition-delay: 500ms;" id="feature3">
+          <div class="bg-white p-8 rounded-xl shadow-sm reveal" style="transition-delay: 400ms;">
             <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 float-animation" style="animation-delay: 1s;">
-              <span class="text-primary text-2xl">🛡️</span>
+              <span class="text-primary text-2xl"><i class="fa fa-shield"></i></span>
             </div>
             <h3 class="text-xl font-bold text-center mb-3">安全可靠</h3>
             <p class="text-gray-600 text-center">
               多重保护设计，过充、过放、过流保护，使用更安心
             </p>
+          </div>
+        </div>
+        
+        <!-- 额外优势 -->
+        <div class="max-w-5xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-xl shadow-sm flex items-start reveal" style="transition-delay: 100ms;">
+            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-certificate"></i></div>
+            <div>
+              <h4 class="font-bold text-lg mb-2">优质材料</h4>
+              <p class="text-gray-600">采用高品质电芯，确保电池性能稳定，循环寿命长</p>
+            </div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm flex items-start reveal" style="transition-delay: 200ms;">
+            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-cogs"></i></div>
+            <div>
+              <h4 class="font-bold text-lg mb-2">精密工艺</h4>
+              <p class="text-gray-600">先进的生产工艺和严格的质量控制，保证每一款产品的品质</p>
+            </div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm flex items-start reveal" style="transition-delay: 300ms;">
+            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-lightbulb-o"></i></div>
+            <div>
+              <h4 class="font-bold text-lg mb-2">创新技术</h4>
+              <p class="text-gray-600">持续研发创新，应用新技术提升电池性能和安全性</p>
+            </div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm flex items-start reveal" style="transition-delay: 400ms;">
+            <div class="mr-4 text-primary text-xl mt-1"><i class="fa fa-life-ring"></i></div>
+            <div>
+              <h4 class="font-bold text-lg mb-2">专业服务</h4>
+              <p class="text-gray-600">提供专业的技术支持和完善的售后服务，让您无后顾之忧</p>
+            </div>
           </div>
         </div>
       </div>
@@ -339,13 +489,34 @@
     <section id="contact" class="py-20 bg-white relative">
       <div class="particle-bg" id="particles-contact"></div>
       <div class="container mx-auto px-4 content-relative">
-        <div class="max-w-3xl mx-auto bg-gray-50 rounded-xl shadow-md p-8 md:p-10 transform translate-y-20 opacity-0 transition-all duration-1000" id="contactCard">
+        <div class="max-w-3xl mx-auto bg-gray-50 rounded-xl shadow-md p-8 md:p-10 reveal">
           <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold mb-8 text-center">
             联系我们
           </h2>
           <div class="flex flex-col items-center">
-            <div class="text-2xl md:text-3xl font-medium text-gray-800 mb-6 text-center px-4 py-3 bg-white rounded-lg shadow-sm w-full max-w-xs text-center">
+            <div class="text-2xl md:text-3xl font-medium text-gray-800 mb-6 text-center px-4 py-3 bg-white rounded-lg shadow-sm w-full max-w-xs text-center pulse-animation">
               18664412441
+            </div>
+            
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <div class="bg-white p-5 rounded-lg shadow-sm flex items-center">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                  <i class="fa fa-map-marker text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium mb-1">公司地址</h4>
+                  <p class="text-gray-600 text-sm">广东省东莞市清溪镇莲塘路2号金龙工业区</p>
+                </div>
+              </div>
+              <div class="bg-white p-5 rounded-lg shadow-sm flex items-center">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                  <i class="fa fa-envelope text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium mb-1">电子邮箱</h4>
+                  <p class="text-gray-600 text-sm">contact@dudubattery.com</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -354,11 +525,58 @@
   </main>
 
   <!-- 页脚 -->
-  <footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto px-4 text-center">
-      <p class="text-gray-400">©2025 嘟嘟电池 版权所有 Flyz远征飞官方提供技术支持</p>
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-lg font-bold mb-4">关于我们</h3>
+            <p class="text-gray-400 text-sm">专注于高倍率锂电池生产、加工及销售，为航模爱好者提供高性能动力解决方案。</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">快速链接</h3>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li><a href="#home" class="hover:text-white transition-colors">首页</a></li>
+              <li><a href="#company" class="hover:text-white transition-colors">公司概况</a></li>
+              <li><a href="#products" class="hover:text-white transition-colors">产品系列</a></li>
+              <li><a href="#contact" class="hover:text-white transition-colors">联系我们</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">业务范围</h3>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>航模电池</li>
+              <li>行业无人机电池</li>
+              <li>汽车启动电源</li>
+              <li>车模船模电池</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">关注我们</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                <i class="fa fa-weixin"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                <i class="fa fa-weibo"></i>
+              </a>
+              <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                <i class="fa fa-youtube-play"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+          <p>©2025 嘟嘟电池 版权所有 <a href="https://www.yzbjfpv.top" target="_blank" class="text-primary hover:underline">Flyz远征飞</a> 官方提供技术支持</p>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 opacity-0 translate-y-10 hover:bg-primary/90">
+    <i class="fa fa-arrow-up"></i>
+  </button>
 
   <script>
    // 页面加载完成后执行
@@ -370,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function() {
       particlesJS(id, {
         "particles": {
           "number": {
-            "value": 40,
+            "value": 60,
             "density": {
               "enable": true,
               "value_area": 800
@@ -465,50 +683,74 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 900);
 
   // 滚动动画监听
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('opacity-0', 'translate-y-8', 'translate-y-20');
+  function checkReveal() {
+    const revealElements = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
+    
+    revealElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementVisible = 150;
+      
+      if (elementTop < windowHeight - elementVisible) {
+        element.classList.add('active');
       }
     });
-  }, { threshold: 0.1 });
+  }
 
-  // 监听新添加的栏目动画元素
-  observer.observe(document.getElementById('companyTitle'));
-  observer.observe(document.getElementById('companyContent'));
-  observer.observe(document.getElementById('businessTitle'));
-  observer.observe(document.getElementById('business1'));
-  observer.observe(document.getElementById('business2'));
-  observer.observe(document.getElementById('business3'));
-  observer.observe(document.getElementById('business4'));
-  observer.observe(document.getElementById('partnersTitle'));
-  observer.observe(document.getElementById('partner1'));
-  observer.observe(document.getElementById('partner2'));
-  observer.observe(document.getElementById('partner3'));
-  observer.observe(document.getElementById('partner4'));
+  // 初始检查
+  checkReveal();
   
-  // 监听产品区域动画元素
-  observer.observe(document.getElementById('productsTitle'));
-  observer.observe(document.getElementById('product1'));
-  observer.observe(document.getElementById('product2'));
-  observer.observe(document.getElementById('product3'));
+  // 滚动时检查
+  window.addEventListener('scroll', checkReveal);
+
+  // 数字计数动画
+  const counters = document.querySelectorAll('.counter');
+  const speed = 200; // 动画速度
   
-  // 监听特点区域动画元素
-  observer.observe(document.getElementById('featuresTitle'));
-  observer.observe(document.getElementById('feature1'));
-  observer.observe(document.getElementById('feature2'));
-  observer.observe(document.getElementById('feature3'));
-  
-  // 监听联系区域动画元素
-  observer.observe(document.getElementById('contactCard'));
+  const observerCounter = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        
+        // 递增速度
+        const increment = target / speed;
+        
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(() => {
+            counter.innerText = Math.ceil(count + increment);
+          }, 1);
+        } else {
+          counter.innerText = target;
+          observerCounter.unobserve(counter);
+        }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => {
+    observerCounter.observe(counter);
+  });
 
   // 移动端菜单交互
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  let menuOpen = false;
   
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      if (menuOpen) {
+        mobileMenu.classList.add('hidden', '-translate-y-2', 'opacity-0');
+        mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+        menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+      } else {
+        mobileMenu.classList.remove('hidden', '-translate-y-2', 'opacity-0');
+        mobileMenu.classList.add('translate-y-0', 'opacity-100');
+        menuBtn.innerHTML = '<i class="fa fa-times"></i>';
+      }
+      menuOpen = !menuOpen;
     });
   }
 
@@ -526,8 +768,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // 关闭移动端菜单
-        if (!mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
+        if (menuOpen) {
+          mobileMenu.classList.add('hidden', '-translate-y-2', 'opacity-0');
+          mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+          menuBtn.innerHTML = '<i class="fa fa-bars"></i>';
+          menuOpen = false;
         }
       }
     });
@@ -536,6 +781,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // 导航栏滚动效果
   window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
+    const backToTop = document.getElementById('backToTop');
+    
     if (window.scrollY > 50) {
       header.classList.add('py-2', 'shadow-lg');
       header.classList.remove('py-3', 'shadow-md');
@@ -543,6 +790,23 @@ document.addEventListener('DOMContentLoaded', function() {
       header.classList.add('py-3', 'shadow-md');
       header.classList.remove('py-2', 'shadow-lg');
     }
+    
+    // 回到顶部按钮显示/隐藏
+    if (window.scrollY > 300) {
+      backToTop.classList.remove('opacity-0', 'translate-y-10');
+      backToTop.classList.add('opacity-100', 'translate-y-0');
+    } else {
+      backToTop.classList.add('opacity-0', 'translate-y-10');
+      backToTop.classList.remove('opacity-100', 'translate-y-0');
+    }
+  });
+
+  // 回到顶部功能
+  document.getElementById('backToTop').addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 });
   </script>
