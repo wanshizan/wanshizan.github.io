@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上品缘黑芝麻丸产品详情</title>
+    <style>
+        /* 全局基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "微软雅黑", "PingFang SC", sans-serif;
+            background-color: #faf6f0;
+            padding: 20px;
+            min-height: 100vh; 
+            overflow-x: hidden; 
+        }
+
+        /* 主容器样式 */
+        .product-detail {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.08);
+            border: 1px solid #f0e6d2;
+        }
+        /* 标题样式 */
+        .detail-title {
+            text-align: center;
+            color: #8b2323;
+            font-size: 20px;
+            font-weight: 600;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0d8b8;
+            position: relative;
+        }
+        /* 新增：不显眼的网址文字样式 */
+        .website-text {
+            text-align: center;
+            font-size: 10px; /* 小字号，不显眼 */
+            color: #b3b3b3; /* 浅灰色，低调不突兀 */
+            margin-bottom: 15px; /* 和表格保持间距 */
+            letter-spacing: 0.5px;
+        }
+        .detail-title::after {
+            content: "";
+            width: 60px;
+            height: 2px;
+            background-color: #cd5c5c;
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* 详情表格样式 */
+        .detail-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 12px;
+        }
+        .detail-table tr td {
+            padding: 12px 15px;
+            font-size: 15px;
+        }
+        /* 左侧标签单元格 */
+        .detail-table .label-cell {
+            width: 28%;
+            text-align: right;
+            font-weight: 600;
+            color: #8b4513;
+            background-color: #f9f2ed;
+            border-radius: 8px 0 0 8px;
+        }
+        /* 右侧内容单元格 */
+        .detail-table .content-cell {
+            width: 72%;
+            color: #5a3e36;
+            background-color: #fff8dc;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 1px 3px rgba(205, 92, 92, 0.05);
+        }
+        /* 温馨提示特殊样式 */
+        .tips-cell {
+            color: #cd5c5c;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-detail">
+        <h2 class="detail-title">✨ 黑芝麻丸 产品详情 ✨</h2>
+        <!-- 新增：不显眼的网址文字 -->
+        <div class="website-text">www.wanshizan.com.cn</div>
+        
+        <table class="detail-table">
+            <tr>
+                <td class="label-cell">产品名称</td>
+                <td class="content-cell">黑芝麻丸</td>
+            </tr>
+            <tr>
+                <td class="label-cell">产品类型</td>
+                <td class="content-cell">冷加工糕点</td>
+            </tr>
+            <tr>
+                <td class="label-cell">配料表</td>
+                <td class="content-cell">黑芝麻、黑豆、黑米、核桃仁、桑椹、黄精、黑枣、蜂蜜</td>
+            </tr>
+            <tr>
+                <td class="label-cell">食用方法</td>
+                <td class="content-cell">直接食用，每日1-2次，每次1-2丸</td>
+            </tr>
+            <tr>
+                <td class="label-cell">禁忌人群</td>
+                <td class="content-cell">对本品原料过敏者不宜食用</td>
+            </tr>
+            <tr>
+                <td class="label-cell">净含量</td>
+                <td class="content-cell">100克（10g×10）</td>
+            </tr>
+            <tr>
+                <td class="label-cell">产地</td>
+                <td class="content-cell">安徽亳州</td>
+            </tr>
+            <tr>
+                <td class="label-cell">贮存方法</td>
+                <td class="content-cell">置于阴凉干燥处，避光</td>
+            </tr>
+            <tr>
+                <td class="label-cell">温馨提示</td>
+                <td class="content-cell tips-cell">芝麻丸常有少量出油，属于正常现象，温度过高放冰箱保存口感更佳，打开之后最佳赏味期是十天</td>
+            </tr>
+            <tr>
+                <td class="label-cell">食品生产许可证号</td>
+                <td class="content-cell">SC11434161106169</td>
+            </tr>
+            <tr>
+                <td class="label-cell">执行标准</td>
+                <td class="content-cell">Q/YRYY 0005S</td>
+            </tr>
+            <tr>
+                <td class="label-cell">保质期</td>
+                <td class="content-cell">6个月</td>
+            </tr>
+            <tr>
+                <td class="label-cell">生产日期</td>
+                <td class="content-cell">见喷码</td>
+            </tr>
+            <tr>
+                <td class="label-cell">生产商</td>
+                <td class="content-cell">安徽有仁药业有限公司</td>
+            </tr>
+            <tr>
+                <td class="label-cell">地址</td>
+                <td class="content-cell">安徽省亳州市高新区希夷大道以西、茴香路以北安徽有仁药业有限公司厂区4号厂房</td>
+            </tr>
+            <tr>
+                <td class="label-cell">全国客服热线</td>
+                <td class="content-cell">0558-5658666</td>
+            </tr>
+            <tr>
+                <td class="label-cell">营养成分表（每100克）</td>
+                <td class="content-cell">
+                    能量：1972千焦（23%）<br>
+                    蛋白质：18.6克（31%）<br>
+                    脂肪：25.0克（42%）<br>
+                    碳水化合物：43.0克（14%）<br>
+                    钠：0毫克（0%）
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
