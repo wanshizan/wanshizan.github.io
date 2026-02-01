@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>上品缘黑芝麻丸产品详情</title>
+    <title>黑芝麻丸产品详情</title>
     <style>
         /* 全局基础样式 */
         * {
@@ -40,12 +40,12 @@
             border-bottom: 2px solid #f0d8b8;
             position: relative;
         }
-        /* 不显眼的网址文字样式 */
+        /* 新增：不显眼的网址文字样式 */
         .website-text {
             text-align: center;
-            font-size: 10px;
-            color: #b3b3b3;
-            margin-bottom: 15px;
+            font-size: 10px; /* 小字号，不显眼 */
+            color: #b3b3b3; /* 浅灰色，低调不突兀 */
+            margin-bottom: 15px; /* 和表格保持间距 */
             letter-spacing: 0.5px;
         }
         .detail-title::after {
@@ -90,25 +90,18 @@
             color: #cd5c5c;
             font-weight: 500;
         }
-        /* 营养成分表标题 */
-        .nutrition-title {
-            text-align: center;
-            color: #8b2323;
-            font-size: 18px;
-            font-weight: 600;
-            margin: 25px 0 15px;
-        }
     </style>
 </head>
 <body>
     <div class="product-detail">
-        <h2 class="detail-title">✨ 上品缘黑芝麻丸 产品详情 ✨</h2>
+        <h2 class="detail-title">? 黑芝麻丸 产品详情 ?</h2>
+        <!-- 新增：不显眼的网址文字 -->
         <div class="website-text">www.wanshizan.com.cn</div>
         
         <table class="detail-table">
             <tr>
                 <td class="label-cell">产品名称</td>
-                <td class="content-cell">黑芝麻丸</td>
+                <td class="content-cell">上品缘黑芝麻丸</td>
             </tr>
             <tr>
                 <td class="label-cell">产品类型</td>
@@ -117,10 +110,6 @@
             <tr>
                 <td class="label-cell">配料表</td>
                 <td class="content-cell">黑芝麻、黑豆、黑米、核桃仁、桑椹、黄精、黑枣、蜂蜜</td>
-            </tr>
-            <tr>
-                <td class="label-cell">产地</td>
-                <td class="content-cell">安徽亳州</td>
             </tr>
             <tr>
                 <td class="label-cell">食用方法</td>
@@ -133,6 +122,10 @@
             <tr>
                 <td class="label-cell">净含量</td>
                 <td class="content-cell">100克（10g×10）</td>
+            </tr>
+            <tr>
+                <td class="label-cell">产地</td>
+                <td class="content-cell">安徽亳州</td>
             </tr>
             <tr>
                 <td class="label-cell">贮存方法</td>
@@ -167,42 +160,18 @@
                 <td class="content-cell">安徽省亳州市高新区希夷大道以西、茴香路以北安徽有仁药业有限公司厂区4号厂房</td>
             </tr>
             <tr>
-                <td class="label-cell">全国客户服务热线</td>
+                <td class="label-cell">全国客服热线</td>
                 <td class="content-cell">0558-5658666</td>
             </tr>
-        </table>
-
-        <h3 class="nutrition-title">📊 营养成分表</h3>
-        <table class="detail-table">
             <tr>
-                <td class="label-cell" style="text-align: center;">项目</td>
-                <td class="content-cell" style="text-align: center;">每100克（g）</td>
-                <td class="content-cell" style="text-align: center;">营养素参考值%</td>
-            </tr>
-            <tr>
-                <td class="label-cell">能量</td>
-                <td class="content-cell">1972千焦（kJ）</td>
-                <td class="content-cell">23%</td>
-            </tr>
-            <tr>
-                <td class="label-cell">蛋白质</td>
-                <td class="content-cell">18.6克（g）</td>
-                <td class="content-cell">31%</td>
-            </tr>
-            <tr>
-                <td class="label-cell">脂肪</td>
-                <td class="content-cell">25.0克（g）</td>
-                <td class="content-cell">42%</td>
-            </tr>
-            <tr>
-                <td class="label-cell">碳水化合物</td>
-                <td class="content-cell">43.0克（g）</td>
-                <td class="content-cell">14%</td>
-            </tr>
-            <tr>
-                <td class="label-cell">钠</td>
-                <td class="content-cell">0毫克（mg）</td>
-                <td class="content-cell">0%</td>
+                <td class="label-cell">营养成分表（每100克）</td>
+                <td class="content-cell">
+                    能量：1972千焦（23%）<br>
+                    蛋白质：18.6克（31%）<br>
+                    脂肪：25.0克（42%）<br>
+                    碳水化合物：43.0克（14%）<br>
+                    钠：0毫克（0%）
+                </td>
             </tr>
         </table>
     </div>
